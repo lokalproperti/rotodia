@@ -13,27 +13,19 @@
         .snap-container::-webkit-scrollbar { display: none; }
         section { scroll-snap-align: start; min-height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; }
         
-        /* Striking Gold Theme */
-        .gold-accent { color: #FFD700; } /* Brighter Gold for visibility */
-        .btn-gold { background: linear-gradient(135deg, #C5A059 0%, #FFD700 100%); transition: all 0.4s ease; }
-        
-        /* Jump Links Style - Striking & Visible */
-        .side-nav-icon {
-            color: #FFD700;
-            filter: drop-shadow(0 0 8px rgba(0,0,0,0.8)); /* Glow hitam agar tetap kelihatan di background terang/gelap */
-            transition: all 0.3s ease;
-        }
-        .side-nav-icon:hover {
-            color: #ffffff;
-            transform: scale(1.2);
-        }
-
+        .gold-accent { color: #C5A059; }
+        .btn-gold { background: linear-gradient(135deg, #C5A059 0%, #E2C285 100%); transition: all 0.4s ease; }
         .glass-card { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.5); }
         
-        /* Floating Frame */
-        .frame-wrapper { position: relative; padding: 12px; display: inline-block; }
-        .frame-border { position: absolute; top: 0; left: 0; right: 0; bottom: 0; border: 1px solid #C5A059; z-index: 1; }
-        .preview-video { position: relative; z-index: 10; width: 100%; max-width: 500px; }
+        /* STRIKING JUMP LINKS - TETAP KLIATAN DI BACKGROUND APAPUN */
+        .side-nav { position: fixed; right: 25px; top: 50%; transform: translateY(-50%); z-index: 1000; display: flex; flex-direction: column; gap: 20px; }
+        .nav-item { 
+            width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; border-radius: 50%; 
+            color: #fbbf24; background: rgba(0,0,0,0.1); backdrop-filter: blur(5px); 
+            transition: all 0.4s ease; 
+            filter: drop-shadow(0 0 8px rgba(0,0,0,0.5)); /* Proteksi agar tetap kliatan di background putih */
+        }
+        .nav-item:hover { background: #fbbf24; color: #000; transform: scale(1.2); }
 
         @keyframes pulse-custom {
             0% { transform: translate(-50%, 0); opacity: 0.3; }
@@ -45,33 +37,13 @@
 </head>
 <body>
 
-    <!-- SIDE NAVIGATION (JUMP LINKS) - FIXED RIGHT -->
-    <nav class="fixed right-6 top-1/2 -translate-y-1/2 z-[100] flex flex-col gap-8">
-        <a href="#hero" class="side-nav-icon" title="Home">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-            </svg>
-        </a>
-        <a href="#about" class="side-nav-icon" title="Why Us">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                <path d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-        </a>
-        <a href="#guarantee" class="side-nav-icon" title="Our Guarantee">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-            </svg>
-        </a>
-        <a href="#demo" class="side-nav-icon" title="Live Demo">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-            </svg>
-        </a>
-        <a href="#contact" class="side-nav-icon" title="Inquire">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-        </a>
+    <!-- STRIKING JUMP LINKS -->
+    <nav class="side-nav">
+        <a href="#hero" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg></a>
+        <a href="#about" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></a>
+        <a href="#solutions" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg></a>
+        <a href="#demo" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg></a>
+        <a href="#contact" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg></a>
     </nav>
 
     <div class="snap-container">
@@ -79,84 +51,95 @@
         <!-- SCENE 1: THE BRAND IDENTITY -->
         <section id="hero" class="text-center px-4">
             <div class="max-w-4xl">
-                <p class="text-xs md:text-sm uppercase tracking-[0.5em] text-[#C5A059] font-bold mb-6">Rotation Digital</p>
+                <p class="text-xs md:text-sm uppercase tracking-[0.5em] gold-accent mb-6 font-bold">Rotation Digital</p>
                 <h1 class="text-5xl md:text-8xl mb-8 leading-tight">Bespoke Digital <br>Offer Suites</h1>
                 <p class="text-sm md:text-lg font-light text-gray-500 max-w-2xl mx-auto leading-relaxed">
-                    Elevating Mosman's real estate presentations through AI-driven cinematography and frictionless offer portals.
+                    We transform luxury real estate presentations into immersive narrative experiences for elite agents and distinguished buyers.
                 </p>
+                <!-- EXCLUSIVITY TAG -->
+                <div class="mt-8 inline-block px-4 py-1 border border-[#fbbf24] text-[#fbbf24] text-[9px] uppercase font-bold tracking-[0.3em]">
+                    Limited: Only 3 Agents Per Territory
+                </div>
             </div>
             <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-scroll text-gray-300">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7" /></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7" /></svg>
             </div>
         </section>
 
-        <!-- SCENE 2: THE PROBLEM & SOLUTION -->
+        <!-- SCENE 2: OUR EDGE (DITAMBAH NO MONTHLY FEES & EXCLUSIVITY) -->
         <section id="about" class="bg-[#f9f9f9] px-6">
             <div class="container mx-auto grid md:grid-cols-2 gap-16 items-center max-w-6xl">
                 <div class="space-y-8">
                     <h2 class="text-4xl md:text-6xl leading-tight">Beyond Static <br>Photography.</h2>
                     <div class="h-px w-20 bg-[#C5A059]"></div>
-                    <p class="text-gray-600 leading-relaxed italic">"Static photos fail to capture the emotional grandeur of a Mosman estate. We bridge that gap."</p>
-                    <p class="text-sm text-gray-500 leading-relaxed">Rotodia transforms your professional stills into stabilized 4K drone-style movements, integrated into a custom-built private offer portal.</p>
+                    <p class="text-sm text-gray-500 leading-relaxed">
+                        Rotodia utilizes cutting-edge AI cinematography to breathe life into architectural stills, creating stabilized 4K drone movements that engage high-net-worth individuals instantly.
+                    </p>
+                    <!-- NEW VALUE POINTS -->
+                    <ul class="space-y-4 pt-4">
+                        <li class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-gray-600">
+                            <span class="text-green-500">✔</span> Zero Monthly Subscriptions
+                        </li>
+                        <li class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-gray-600">
+                            <span class="text-green-500">✔</span> Pay Only Per Active Request
+                        </li>
+                        <li class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest gold-accent">
+                            <span class="gold-accent">★</span> Territory Exclusivity (Max 3)
+                        </li>
+                    </ul>
                 </div>
                 <div class="flex justify-center">
-                    <div class="frame-wrapper shadow-2xl">
-                        <div class="frame-border"></div>
-                        <img src="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=800" class="preview-video grayscale hover:grayscale-0 transition-all duration-700" alt="Sample Work">
+                    <div class="relative p-4 border border-gray-100 bg-white shadow-2xl">
+                        <img src="https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=800" class="w-full grayscale hover:grayscale-0 transition-all duration-700" alt="Work Sample">
                     </div>
                 </div>
             </div>
         </section>
-        <!-- SCENE 3: RISK-FREE GUARANTEE (NEW!!) -->
-        <section id="guarantee" class="bg-white px-6">
-            <div class="container mx-auto max-w-5xl text-center">
-                <h2 class="text-4xl md:text-6xl mb-12">Zero-Risk Policy.</h2>
-                <div class="grid md:grid-cols-2 gap-12 text-left">
-                    <div class="glass-card p-10 shadow-xl border-l-4 border-[#C5A059]">
-                        <h3 class="text-xl font-bold mb-4 uppercase tracking-widest">1. Proof of Concept</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed">We build a live 24-hour demo of your listing. Experience the cinematic motion and the portal flow before making any commitment.</p>
-                    </div>
-                    <div class="glass-card p-10 shadow-xl border-l-4 border-[#C5A059]">
-                        <h3 class="text-xl font-bold mb-4 uppercase tracking-widest">2. Pay Only on Satisfaction</h3>
-                        <p class="text-sm text-gray-600 leading-relaxed">If you are not impressed by the results within the 24-hour trial period, you pay <b>nothing</b>. Zero invoice. No questions asked.</p>
-                    </div>
+
+        <!-- SCENE 3: SOLUTIONS & GUARANTEE (DITAMBAH 24H DEMO) -->
+        <section id="solutions" class="px-6 bg-white">
+            <div class="container mx-auto max-w-6xl">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl mb-4">Risk-Free Partnership</h2>
+                    <p class="text-xs uppercase tracking-widest text-gray-400 font-bold">Try Before You Buy</p>
                 </div>
-                <div class="mt-12 p-6 bg-gray-50 inline-block rounded-lg">
-                    <p class="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-400 mb-4">Flexible Global Payments</p>
-                    <div class="flex gap-8 justify-center items-center opacity-70 grayscale">
-                        <span class="text-xs font-bold">PAYPAL</span>
-                        <span class="text-xs font-bold">UPWORK</span>
-                        <span class="text-xs font-bold">FREELANCER</span>
-                        <span class="text-xs font-bold">DIRECT AUD TRANSFER</span>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="p-10 border border-gray-100 hover:border-[#fbbf24] transition-all group glass-card">
+                        <h3 class="text-xl mb-4 uppercase tracking-widest font-bold">24h Demo Reveal</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">We build a full-scale digital demo of your listing within 24 hours. Experience the result before any invoice is issued.</p>
+                    </div>
+                    <div class="p-10 border border-gray-100 hover:border-[#fbbf24] transition-all group glass-card">
+                        <h3 class="text-xl mb-4 uppercase tracking-widest font-bold">Satisfaction Guarantee</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">If you are not captivated by the demo within 24 hours, you pay nothing. No strings attached. No monthly fees.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- SCENE 4: LIVE DEMO -->
-        <section id="demo" class="bg-[#1a1a1a] text-white px-6">
-            <div class="text-center space-y-8">
-                <p class="text-xs uppercase tracking-[0.4em] gold-accent">The Result</p>
-                <h2 class="text-4xl md:text-6xl">12 Smith St, Mosman</h2>
-                <p class="text-gray-400 text-sm max-w-xl mx-auto">Click below to see the portal that successfully captures high-net-worth engagement.</p>
+        <section id="demo" class="bg-[#1a1a1a] text-white px-6 text-center">
+            <div class="space-y-8">
+                <p class="text-xs uppercase tracking-[0.4em] gold-accent font-bold">The Result</p>
+                <h2 class="text-4xl md:text-6xl serif">12 Smith St, Mosman</h2>
+                <p class="text-gray-400 text-sm max-w-xl mx-auto font-light">See how we deployed our Digital Offer Suite for a marquee listing.</p>
                 <div class="pt-8">
-                    <a href="https://real-estate-digital-offer.pages.dev/" target="_blank" class="inline-block px-12 py-5 border-2 border-[#FFD700] text-[#FFD700] hover:bg-[#FFD700] hover:text-black transition-all text-xs uppercase tracking-[0.3em] font-bold">
-                        View Sample Portal
+                    <a href="https://real-estate-digital-offer.pages.dev/" target="_blank" class="inline-block px-12 py-5 border border-[#C5A059] gold-accent hover:bg-[#C5A059] hover:text-black transition-all text-xs uppercase tracking-[0.3em] font-bold">
+                        View Live Demo
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- SCENE 5: CONTACT -->
+        <!-- SCENE 5: CONTACT & PAYMENT (DITAMBAH PAYMENT FLEXIBILITY) -->
         <section id="contact" class="bg-[#fcfcfc] px-6 py-20 overflow-y-auto">
             <div class="max-w-xl w-full mx-auto glass-card p-8 md:p-12 shadow-2xl">
-                <h2 class="text-3xl text-center mb-8 serif">Request Your 24h Demo</h2>
+                <h2 class="text-3xl text-center mb-8 serif">Request Your Free Demo</h2>
                 <form id="contactForm" class="space-y-6">
                     <input type="hidden" name="agent_email" value="id.lokalproperti@gmail.com">
-                    <input type="hidden" name="property_address" value="Demo Request - 24h Satisfaction Trial">
+                    <input type="hidden" name="property_address" value="Demo Request - Satisfaction Trial">
                     
                     <div>
-                        <label class="block text-[10px] uppercase font-bold text-gray-400 mb-2">Agent/Agency Name</label>
+                        <label class="block text-[10px] uppercase font-bold text-gray-400 mb-2">Agency Name</label>
                         <input type="text" name="buyer_names" required class="w-full border-b border-gray-200 py-2 bg-transparent outline-none focus:border-[#C5A059]">
                     </div>
                     <div>
@@ -164,24 +147,33 @@
                         <input type="email" name="email" required class="w-full border-b border-gray-200 py-2 bg-transparent outline-none focus:border-[#C5A059]">
                     </div>
                     <div>
-                        <label class="block text-[10px] uppercase font-bold text-gray-400 mb-2">Listing Address for Demo</label>
-                        <textarea name="comments" rows="2" placeholder="Paste listing URL or address..." class="w-full border-b border-gray-200 py-2 bg-transparent outline-none focus:border-[#C5A059] resize-none"></textarea>
+                        <label class="block text-[10px] uppercase font-bold text-gray-400 mb-2">Listing URL for Demo</label>
+                        <textarea name="comments" rows="2" class="w-full border-b border-gray-200 py-2 bg-transparent outline-none focus:border-[#C5A059] resize-none"></textarea>
                     </div>
                     <div id="statusMsg" class="text-xs text-center"></div>
                     <button type="submit" id="submitBtn" class="w-full btn-gold py-5 text-black font-bold text-[10px] uppercase tracking-[0.3em]">
                         Get My Free Demo
                     </button>
                 </form>
-                <p class="mt-8 text-[9px] text-center text-gray-400 uppercase tracking-widest">
-                    Sydney | London | Jakarta &copy; 2026 ROTODIA
-                </p>
+                
+                <!-- PAYMENT CHANNELS -->
+                <div class="mt-10 text-center">
+                    <p class="text-[9px] uppercase tracking-widest text-gray-400 mb-4">Flexible Global Payments</p>
+                    <div class="flex justify-center gap-6 opacity-50 text-[10px] font-bold">
+                        <span>PAYPAL</span><span>UPWORK</span><span>FREELANCER</span><span>WISE</span>
+                    </div>
+                </div>
+
+                <div class="mt-10 pt-8 border-t border-gray-100 flex justify-between items-center opacity-30">
+                   <div class="text-[9px] uppercase tracking-widest">&copy; 2026 ROTODIA</div>
+                </div>
             </div>
         </section>
 
     </div>
 
     <script>
-        const scriptURL = 'MASUKKAN_URL_GOOGLE_SCRIPT_KAMU_DISINI';
+        const scriptURL = 'PASTE_URL_WEB_APP_GOOGLE_KAMU_DISINI';
         const form = document.getElementById('contactForm');
         const statusMsg = document.getElementById('statusMsg');
         const btn = document.getElementById('submitBtn');
@@ -189,18 +181,18 @@
         form.addEventListener('submit', e => {
             e.preventDefault();
             btn.disabled = true;
-            statusMsg.innerHTML = "INITIATING REQUEST...";
+            statusMsg.innerHTML = "SENDING...";
             statusMsg.className = "text-gray-400 text-xs text-center mb-4";
             
             fetch(scriptURL, { method: 'POST', body: new FormData(form)})
             .then(response => {
-                statusMsg.innerHTML = "DEMO REQUEST SENT. WE WILL CONTACT YOU WITHIN 4 HOURS.";
+                statusMsg.innerHTML = "DEMO REQUEST SENT. WE WILL CONTACT YOU SHORTLY.";
                 statusMsg.className = "text-green-600 text-xs text-center mb-4 font-bold";
                 form.reset();
                 btn.disabled = false;
             })
             .catch(error => {
-                statusMsg.innerHTML = "CONNECTION ERROR. PLEASE EMAIL DIRECTLY.";
+                statusMsg.innerHTML = "ERROR. PLEASE TRY AGAIN.";
                 statusMsg.className = "text-red-600 text-xs text-center mb-4";
                 btn.disabled = false;
             });
