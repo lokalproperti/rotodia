@@ -20,7 +20,7 @@
                             primary: '#1a1a1a',
                             secondary: '#6b7280',
                             tertiary: '#9ca3af',
-                            inverse: '#C5A059', // Elegant gold/champagne
+                            inverse: '#C5A059',
                         },
                         surface: {
                             base: '#2d2d2d',
@@ -40,8 +40,10 @@
                         'lg': '14px',
                         'xl': '16px',
                         '2xl': '18px',
-                        '3xl': '30px',
-                        '4xl': '48px',
+                        '3xl': '20px',
+                        '4xl': '24px',
+                        '5xl': '32px',
+                        '6xl': '40px',
                     },
                     spacing: {
                         '1': '8px',
@@ -74,10 +76,9 @@
         body { 
             font-family: 'Montserrat', sans-serif;
             font-size: 16px;
-            line-height: 24px;
+            line-height: 1.6;
         }
         
-        /* Right-side jump navigation */
         .jump-nav {
             position: fixed;
             right: 2rem;
@@ -132,7 +133,6 @@
             .jump-nav { display: none; }
         }
         
-        /* Elegant underline for headings */
         .heading-accent::after {
             content: '';
             display: block;
@@ -142,20 +142,10 @@
             margin-top: 1.5rem;
             opacity: 0.3;
         }
-        .heading-accent-center::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 2px;
-            background: currentColor;
-            margin: 1.5rem auto 0;
-            opacity: 0.3;
-        }
     </style>
 </head>
 <body class="bg-surface-muted text-text-primary antialiased">
 
-    <!-- FIXED RIGHT-SIDE JUMP NAVIGATION -->
     <nav class="jump-nav text-text-primary">
         <a href="#hero" class="active" data-section="hero">
             <span class="label text-text-primary">Overview</span>
@@ -173,6 +163,10 @@
             <span class="label text-text-primary">Benefits</span>
             <span class="dot"></span>
         </a>
+        <a href="#bonus" data-section="bonus">
+            <span class="label text-text-primary">Bonus</span>
+            <span class="dot"></span>
+        </a>
         <a href="#demos" data-section="demos">
             <span class="label text-text-primary">Live Demos</span>
             <span class="dot"></span>
@@ -183,18 +177,15 @@
         </a>
     </nav>
 
-    <!-- ============================================ -->
-    <!-- SECTION 1: HERO (DARK) -->
-    <!-- ============================================ -->
     <section id="hero" class="relative min-h-screen bg-surface-base text-white flex items-center px-6 py-8 overflow-hidden">
         <div class="max-w-6xl mx-auto w-full">
             <div class="max-w-4xl">
-                <p class="text-xs tracking-[0.3em] uppercase text-white/50 mb-8 font-medium">The Modern Digital EOI</p>
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-8">
+                <p class="text-xs tracking-[0.3em] uppercase text-white/50 mb-6 font-medium">The Modern Digital EOI</p>
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight mb-6">
                     Stop losing leads<br>
                     <span class="text-text-inverse">to PDF forms.</span>
                 </h1>
-                <p class="text-lg text-white/70 max-w-xl leading-relaxed mb-12 font-normal">
+                <p class="text-lg md:text-xl text-white/80 max-w-xl leading-relaxed mb-8 font-normal">
                     Replace clunky paperwork with a seamless digital Express of Interest platform. Interactive AI video, automated emails, and a 1-click experience for your buyers.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
@@ -205,7 +196,7 @@
                         View Live Examples →
                     </a>
                 </div>
-                <div class="mt-16 pt-8 border-t border-white/10 flex flex-wrap gap-x-8 gap-y-3 text-xs tracking-widest uppercase text-white/40 font-medium">
+                <div class="mt-12 pt-6 border-t border-white/10 flex flex-wrap gap-x-8 gap-y-3 text-xs tracking-widest uppercase text-white/40 font-medium">
                     <span>100% Done-For-You</span>
                     <span>•</span>
                     <span>Pay Per Project</span>
@@ -216,245 +207,302 @@
         </div>
     </section>
 
-    <!-- ============================================ -->
-    <!-- SECTION 2: COMPARISON (LIGHT) -->
-    <!-- ============================================ -->
     <section id="comparison" class="bg-surface-raised text-text-primary py-8 px-6">
         <div class="max-w-6xl mx-auto">
-            <div class="max-w-3xl mb-16">
-                <p class="text-xs tracking-[0.3em] uppercase text-text-tertiary mb-6 font-medium">The Shift</p>
+            <div class="max-w-3xl mb-12">
+                <p class="text-xs tracking-[0.3em] uppercase text-text-tertiary mb-4 font-medium">The Shift</p>
                 <h2 class="text-3xl md:text-4xl font-bold leading-tight heading-accent">
                     The buyer experience<br>has changed.
                 </h2>
             </div>
             
-            <div class="grid md:grid-cols-2 gap-6">
-                <!-- The Old Way -->
-                <div class="p-8 md:p-10 border border-border-default bg-surface-muted">
-                    <p class="text-xs tracking-[0.25em] uppercase text-text-tertiary mb-4 font-medium">01 — The Old Way</p>
-                    <h3 class="text-3xl font-bold mb-8">PDF Forms</h3>
-                    <ul class="space-y-5 text-text-secondary">
-                        <li class="flex gap-4 pb-5 border-b border-border-muted">
-                            <span class="text-3xl font-bold text-text-tertiary">01</span>
-                            <span class="pt-2">Buyer downloads a PDF to their phone.</span>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="p-5 md:p-8 border border-border-default bg-surface-muted">
+                    <p class="text-xs tracking-[0.25em] uppercase text-text-tertiary mb-3 font-medium">01 — The Old Way</p>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4">PDF Forms</h3>
+                    <ul class="space-y-3 text-text-primary text-base leading-relaxed">
+                        <li class="flex gap-3 pb-3 border-b border-border-muted">
+                            <span class="text-xl font-bold text-text-tertiary flex-shrink-0">01</span>
+                            <span class="pt-1">Buyer downloads a PDF to their phone.</span>
                         </li>
-                        <li class="flex gap-4 pb-5 border-b border-border-muted">
-                            <span class="text-3xl font-bold text-text-tertiary">02</span>
-                            <span class="pt-2">Struggles to fill it out, loses their place.</span>
+                        <li class="flex gap-3 pb-3 border-b border-border-muted">
+                            <span class="text-xl font-bold text-text-tertiary flex-shrink-0">02</span>
+                            <span class="pt-1">Struggles to fill it out, loses their place.</span>
                         </li>
-                        <li class="flex gap-4 pb-5 border-b border-border-muted">
-                            <span class="text-3xl font-bold text-text-tertiary">03</span>
-                            <span class="pt-2">Has to find their email app to send it back.</span>
+                        <li class="flex gap-3 pb-3 border-b border-border-muted">
+                            <span class="text-xl font-bold text-text-tertiary flex-shrink-0">03</span>
+                            <span class="pt-1">Has to find their email app to send it back.</span>
                         </li>
-                        <li class="flex gap-4">
-                            <span class="text-3xl font-bold text-text-tertiary">04</span>
-                            <span class="pt-2">You wait hours for a manual reply.</span>
+                        <li class="flex gap-3">
+                            <span class="text-xl font-bold text-text-tertiary flex-shrink-0">04</span>
+                            <span class="pt-1">You wait hours for a manual reply.</span>
                         </li>
                     </ul>
-                    <p class="mt-8 text-sm italic text-text-tertiary">High friction. High drop-off rate.</p>
+                    <p class="mt-6 text-sm italic text-text-secondary">High friction. High drop-off rate.</p>
                 </div>
 
-                <!-- The Rotodia Way -->
-                <div class="p-8 md:p-10 bg-surface-base text-white">
-                    <p class="text-xs tracking-[0.25em] uppercase text-white/50 mb-4 font-medium">02 — The Rotodia Way</p>
-                    <h3 class="text-3xl font-bold mb-8">Digital EOI</h3>
-                    <ul class="space-y-5 text-white/80">
-                        <li class="flex gap-4 pb-5 border-b border-white/10">
-                            <span class="text-3xl font-bold text-text-inverse">01</span>
-                            <span class="pt-2">Buyer watches your stunning AI video hero.</span>
+                <div class="p-5 md:p-8 bg-surface-base text-white">
+                    <p class="text-xs tracking-[0.25em] uppercase text-white/50 mb-3 font-medium">02 — The Rotodia Way</p>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-4">Digital EOI</h3>
+                    <ul class="space-y-3 text-white/90 text-base leading-relaxed">
+                        <li class="flex gap-3 pb-3 border-b border-white/10">
+                            <span class="text-xl font-bold text-text-inverse flex-shrink-0">01</span>
+                            <span class="pt-1">Buyer watches your stunning AI video hero.</span>
                         </li>
-                        <li class="flex gap-4 pb-5 border-b border-white/10">
-                            <span class="text-3xl font-bold text-text-inverse">02</span>
-                            <span class="pt-2">Fills a sleek, mobile-friendly digital form.</span>
+                        <li class="flex gap-3 pb-3 border-b border-white/10">
+                            <span class="text-xl font-bold text-text-inverse flex-shrink-0">02</span>
+                            <span class="pt-1">Fills a sleek, mobile-friendly digital form.</span>
                         </li>
-                        <li class="flex gap-4 pb-5 border-b border-white/10">
-                            <span class="text-3xl font-bold text-text-inverse">03</span>
-                            <span class="pt-2">Clicks submit. Done in 10 seconds.</span>
+                        <li class="flex gap-3 pb-3 border-b border-white/10">
+                            <span class="text-xl font-bold text-text-inverse flex-shrink-0">03</span>
+                            <span class="pt-1">Clicks submit. Done in 10 seconds.</span>
                         </li>
-                        <li class="flex gap-4">
-                            <span class="text-3xl font-bold text-text-inverse">04</span>
-                            <span class="pt-2">You get the lead instantly via email.</span>
+                        <li class="flex gap-3">
+                            <span class="text-xl font-bold text-text-inverse flex-shrink-0">04</span>
+                            <span class="pt-1">You get the lead instantly via email.</span>
                         </li>
                     </ul>
-                    <p class="mt-8 text-sm italic text-text-inverse">Zero friction. Professional impression.</p>
+                    <p class="mt-6 text-sm italic text-text-inverse">Zero friction. Professional impression.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ============================================ -->
-    <!-- SECTION 3: HOW IT WORKS (DARK) -->
-    <!-- ============================================ -->
     <section id="process" class="bg-surface-base text-white py-8 px-6">
         <div class="max-w-6xl mx-auto">
-            <div class="max-w-3xl mb-20">
-                <p class="text-xs tracking-[0.3em] uppercase text-white/50 mb-6 font-medium">The Process</p>
+            <div class="max-w-3xl mb-12">
+                <p class="text-xs tracking-[0.3em] uppercase text-white/50 mb-4 font-medium">The Process</p>
                 <h2 class="text-3xl md:text-4xl font-bold leading-tight heading-accent text-white">
                     See your listing<br>come to life.
                 </h2>
-                <p class="text-white/70 text-lg mt-8 max-w-xl font-normal">We build a complete visual demo for your current listing — at zero cost, zero obligation.</p>
+                <p class="text-white/80 text-lg mt-6 max-w-xl font-normal">We build a complete visual demo for your current listing — at zero cost, zero obligation.</p>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10">
-                <div class="bg-surface-base p-8 md:p-10">
-                    <p class="text-5xl font-bold text-text-inverse/50 mb-6">01</p>
-                    <h4 class="text-2xl font-bold mb-4">Send the Details</h4>
-                    <p class="text-white/60 text-sm leading-relaxed">Give us the property name, your email, and a link to the photos.</p>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-surface-base p-5 md:p-8 border border-white/10">
+                    <p class="text-4xl font-bold text-text-inverse/50 mb-3">01</p>
+                    <h4 class="text-xl md:text-2xl font-bold mb-3">Send the Details</h4>
+                    <p class="text-white/80 text-base leading-relaxed">Give us the property name, your email, and a link to the photos.</p>
                 </div>
-                <div class="bg-surface-base p-8 md:p-10">
-                    <p class="text-5xl font-bold text-text-inverse/50 mb-6">02</p>
-                    <h4 class="text-2xl font-bold mb-4">We Build the Visuals</h4>
-                    <p class="text-white/60 text-sm leading-relaxed">We generate the interactive AI video and build your custom page.</p>
+                <div class="bg-surface-base p-5 md:p-8 border border-white/10">
+                    <p class="text-4xl font-bold text-text-inverse/50 mb-3">02</p>
+                    <h4 class="text-xl md:text-2xl font-bold mb-3">We Build the Visuals</h4>
+                    <p class="text-white/80 text-base leading-relaxed">We generate the interactive AI video and build your custom page.</p>
                 </div>
-                <div class="bg-surface-base p-8 md:p-10">
-                    <p class="text-5xl font-bold text-text-inverse/50 mb-6">03</p>
-                    <h4 class="text-2xl font-bold mb-4">Impress Vendors</h4>
-                    <p class="text-white/60 text-sm leading-relaxed">Use the free demo to win your next appraisal. No obligation.</p>
+                <div class="bg-surface-base p-5 md:p-8 border border-white/10">
+                    <p class="text-4xl font-bold text-text-inverse/50 mb-3">03</p>
+                    <h4 class="text-xl md:text-2xl font-bold mb-3">Impress Vendors</h4>
+                    <p class="text-white/80 text-base leading-relaxed">Use the free demo to win your next appraisal. No obligation.</p>
                 </div>
-                <div class="bg-surface-base p-8 md:p-10">
-                    <p class="text-5xl font-bold text-text-inverse/50 mb-6">04</p>
-                    <h4 class="text-2xl font-bold mb-4">Go Live</h4>
-                    <p class="text-white/60 text-sm leading-relaxed">Pay a simple one-time fee to activate the live EOI form & emails.</p>
+                <div class="bg-surface-base p-5 md:p-8 border border-white/10">
+                    <p class="text-4xl font-bold text-text-inverse/50 mb-3">04</p>
+                    <h4 class="text-xl md:text-2xl font-bold mb-3">Go Live</h4>
+                    <p class="text-white/80 text-base leading-relaxed">Pay a simple one-time fee to activate the live EOI form & emails.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ============================================ -->
-    <!-- SECTION 4: FEATURES (LIGHT) -->
-    <!-- ============================================ -->
     <section id="features" class="bg-surface-strong text-text-primary py-8 px-6">
         <div class="max-w-6xl mx-auto">
-            <div class="max-w-3xl mb-20">
-                <p class="text-xs tracking-[0.3em] uppercase text-text-tertiary mb-6 font-medium">The Benefits</p>
+            <div class="max-w-3xl mb-12">
+                <p class="text-xs tracking-[0.3em] uppercase text-text-tertiary mb-4 font-medium">The Benefits</p>
                 <h2 class="text-3xl md:text-4xl font-bold leading-tight heading-accent">
                     Everything you need<br>to win the appraisal.
                 </h2>
             </div>
             
-            <div class="grid md:grid-cols-2 gap-px bg-border-default border border-border-default">
-                <div class="bg-surface-muted p-10 md:p-12">
-                    <p class="text-xs tracking-[0.25em] uppercase text-text-tertiary mb-4 font-medium">Feature 01</p>
-                    <h3 class="text-3xl font-bold mb-4">100% Done-For-You</h3>
-                    <p class="text-text-secondary leading-relaxed">No tech skills, no software to learn. Send us the photos and details. We build the page. You just share the link.</p>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-surface-muted p-5 md:p-8 border border-border-default">
+                    <p class="text-xs tracking-[0.25em] uppercase text-text-tertiary mb-3 font-medium">Feature 01</p>
+                    <h3 class="text-xl md:text-2xl font-bold mb-3">100% Done-For-You</h3>
+                    <p class="text-text-primary text-base leading-relaxed">No tech skills, no software to learn. Send us the photos and details. We build the page. You just share the link.</p>
                 </div>
-                <div class="bg-surface-muted p-10 md:p-12">
-                    <p class="text-xs tracking-[0.25em] uppercase text-text-tertiary mb-4 font-medium">Feature 02</p>
-                    <h3 class="text-3xl font-bold mb-4">Automated Workflows</h3>
-                    <p class="text-text-secondary leading-relaxed">You get the lead instantly. The buyer gets a professional confirmation email automatically. Zero manual admin work.</p>
+                <div class="bg-surface-muted p-5 md:p-8 border border-border-default">
+                    <p class="text-xs tracking-[0.25em] uppercase text-text-tertiary mb-3 font-medium">Feature 02</p>
+                    <h3 class="text-xl md:text-2xl font-bold mb-3">Automated Workflows</h3>
+                    <p class="text-text-primary text-base leading-relaxed">You get the lead instantly. The buyer gets a professional confirmation email automatically. Zero manual admin work.</p>
                 </div>
-                <div class="bg-surface-muted p-10 md:p-12">
-                    <p class="text-xs tracking-[0.25em] uppercase text-text-tertiary mb-4 font-medium">Feature 03</p>
-                    <h3 class="text-3xl font-bold mb-4">Privacy-First</h3>
-                    <p class="text-text-secondary leading-relaxed">Once the property is sold, we take the site down immediately. Protect your vendor's privacy and high-end imagery.</p>
+                <div class="bg-surface-muted p-5 md:p-8 border border-border-default">
+                    <p class="text-xs tracking-[0.25em] uppercase text-text-tertiary mb-3 font-medium">Feature 03</p>
+                    <h3 class="text-xl md:text-2xl font-bold mb-3">Privacy-First</h3>
+                    <p class="text-text-primary text-base leading-relaxed">Once the property is sold, we take the site down immediately. Protect your vendor's privacy and high-end imagery.</p>
                 </div>
-                <div class="bg-surface-muted p-10 md:p-12">
-                    <p class="text-xs tracking-[0.25em] uppercase text-text-tertiary mb-4 font-medium">Feature 04</p>
-                    <h3 class="text-3xl font-bold mb-4">One-Time Fee</h3>
-                    <p class="text-text-secondary leading-relaxed">Pay per property. No monthly SaaS subscriptions, no hidden costs, no surprises. Simple as that.</p>
+                <div class="bg-surface-muted p-5 md:p-8 border border-border-default">
+                    <p class="text-xs tracking-[0.25em] uppercase text-text-tertiary mb-3 font-medium">Feature 04</p>
+                    <h3 class="text-xl md:text-2xl font-bold mb-3">One-Time Fee</h3>
+                    <p class="text-text-primary text-base leading-relaxed">Pay per property. No monthly SaaS subscriptions, no hidden costs, no surprises. Simple as that.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ============================================ -->
-    <!-- SECTION 5: LIVE DEMOS (DARK) -->
-    <!-- ============================================ -->
+    <section id="bonus" class="bg-gradient-to-br from-text-inverse/10 to-surface-muted text-text-primary py-8 px-6 border-y-2 border-text-inverse/20">
+        <div class="max-w-6xl mx-auto">
+            <div class="max-w-3xl mb-8">
+                <p class="text-xs tracking-[0.3em] uppercase text-text-inverse font-bold mb-4">✨ Bonus Included</p>
+                <h2 class="text-3xl md:text-4xl font-bold leading-tight">
+                    Own Your AI Video.<br>
+                    <span class="text-text-inverse">Use It Everywhere.</span>
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6 items-center">
+                <div>
+                    <p class="text-text-primary text-lg leading-relaxed mb-6">
+                        Every property package includes the <strong class="text-text-primary">full AI video file</strong> — yours to keep and use across all your marketing channels.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Instagram Reels</h4>
+                                <p class="text-text-secondary text-sm">Post engaging property tours to reach thousands of potential buyers.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">TikTok</h4>
+                                <p class="text-text-secondary text-sm">Go viral with cinematic property content that stops the scroll.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-red-500 to-red-600 flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">YouTube Shorts</h4>
+                                <p class="text-text-secondary text-sm">Maximize visibility on the world's second-largest search engine.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-surface-base p-6 rounded-lg border border-text-inverse/30">
+                    <h3 class="text-xl font-bold text-white mb-4">What You Get:</h3>
+                    <ul class="space-y-3 text-white/90 text-base">
+                        <li class="flex items-center gap-3">
+                            <span class="text-text-inverse font-bold">✓</span>
+                            <span>High-resolution MP4 video file</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-text-inverse font-bold">✓</span>
+                            <span>Optimized for vertical (9:16) format</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-text-inverse font-bold">✓</span>
+                            <span>Full commercial usage rights</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-text-inverse font-bold">✓</span>
+                            <span>Ready to upload immediately</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="text-text-inverse font-bold">✓</span>
+                            <span>No watermarks or restrictions</span>
+                        </li>
+                    </ul>
+                    <p class="mt-6 text-sm text-text-inverse italic">Value: $500+ in video production — included FREE with every property.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="demos" class="bg-surface-base text-white py-8 px-6">
         <div class="max-w-6xl mx-auto">
-            <div class="max-w-3xl mb-20">
-                <p class="text-xs tracking-[0.3em] uppercase text-white/50 mb-6 font-medium">Live Examples</p>
+            <div class="max-w-3xl mb-12">
+                <p class="text-xs tracking-[0.3em] uppercase text-white/50 mb-4 font-medium">Live Examples</p>
                 <h2 class="text-3xl md:text-4xl font-bold leading-tight heading-accent text-white">
                     See it in action.
                 </h2>
-                <p class="text-white/70 text-lg mt-8 max-w-xl font-normal">Experience the digital EOI flow exactly as your buyers will.</p>
+                <p class="text-white/80 text-lg mt-6 max-w-xl font-normal">Experience the digital EOI flow exactly as your buyers will.</p>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-6">
+            <div class="grid md:grid-cols-3 gap-4">
                 <a href="https://avalon.rotodia.dev" target="_blank" class="group block">
-                    <div class="aspect-[4/5] bg-white/5 border border-white/10 overflow-hidden mb-4 relative">
+                    <div class="aspect-[4/5] bg-white/5 border border-white/10 overflow-hidden mb-3 relative">
                         <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-normal duration-500" alt="Avalon">
-                        <div class="absolute inset-0 flex items-end p-6">
+                        <div class="absolute inset-0 flex items-end p-4">
                             <span class="px-4 py-2 bg-text-inverse text-white text-xs tracking-widest uppercase font-semibold rounded-xs opacity-0 group-hover:opacity-100 transition-fast">View Demo →</span>
                         </div>
                     </div>
                     <p class="text-xs tracking-[0.25em] uppercase text-white/40 mb-2 font-medium">Demo 01</p>
-                    <h3 class="text-2xl font-bold">Avalon Residence</h3>
-                    <p class="text-sm text-white/50 mt-1">AI Video + EOI</p>
+                    <h3 class="text-xl md:text-2xl font-bold">Avalon Residence</h3>
+                    <p class="text-sm text-white/60 mt-1">AI Video + EOI</p>
                 </a>
                 <a href="https://balmain.rotodia.dev" target="_blank" class="group block">
-                    <div class="aspect-[4/5] bg-white/5 border border-white/10 overflow-hidden mb-4 relative">
+                    <div class="aspect-[4/5] bg-white/5 border border-white/10 overflow-hidden mb-3 relative">
                         <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-normal duration-500" alt="Balmain">
-                        <div class="absolute inset-0 flex items-end p-6">
+                        <div class="absolute inset-0 flex items-end p-4">
                             <span class="px-4 py-2 bg-text-inverse text-white text-xs tracking-widest uppercase font-semibold rounded-xs opacity-0 group-hover:opacity-100 transition-fast">View Demo →</span>
                         </div>
                     </div>
                     <p class="text-xs tracking-[0.25em] uppercase text-white/40 mb-2 font-medium">Demo 02</p>
-                    <h3 class="text-2xl font-bold">Balmain Estate</h3>
-                    <p class="text-sm text-white/50 mt-1">Interactive Digital Flow</p>
+                    <h3 class="text-xl md:text-2xl font-bold">Balmain Estate</h3>
+                    <p class="text-sm text-white/60 mt-1">Interactive Digital Flow</p>
                 </a>
                 <a href="https://demo.rotodia.dev" target="_blank" class="group block">
-                    <div class="aspect-[4/5] bg-white/5 border border-white/10 overflow-hidden mb-4 relative">
+                    <div class="aspect-[4/5] bg-white/5 border border-white/10 overflow-hidden mb-3 relative">
                         <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-normal duration-500" alt="Main Demo">
-                        <div class="absolute inset-0 flex items-end p-6">
+                        <div class="absolute inset-0 flex items-end p-4">
                             <span class="px-4 py-2 bg-text-inverse text-white text-xs tracking-widest uppercase font-semibold rounded-xs opacity-0 group-hover:opacity-100 transition-fast">View Demo →</span>
                         </div>
                     </div>
                     <p class="text-xs tracking-[0.25em] uppercase text-white/40 mb-2 font-medium">Demo 03</p>
-                    <h3 class="text-2xl font-bold">Main Showcase</h3>
-                    <p class="text-sm text-white/50 mt-1">Full Feature Experience</p>
+                    <h3 class="text-xl md:text-2xl font-bold">Main Showcase</h3>
+                    <p class="text-sm text-white/60 mt-1">Full Feature Experience</p>
                 </a>
             </div>
-            <p class="text-center text-xs italic text-white/40 mt-12">Note: Forms on these demo pages are visual previews. Click 'Get Free Demo' to activate real lead capture.</p>
+            <p class="text-center text-xs italic text-white/40 mt-8">Note: Forms on these demo pages are visual previews. Click 'Get Free Demo' to activate real lead capture.</p>
         </div>
     </section>
 
-    <!-- ============================================ -->
-    <!-- SECTION 6: FREE DEMO FORM (LIGHT) -->
-    <!-- ============================================ -->
     <section id="claim" class="bg-surface-raised text-text-primary py-8 px-6">
         <div class="max-w-4xl mx-auto">
-            <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+            <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
                 <div>
-                    <p class="text-xs tracking-[0.3em] uppercase text-text-tertiary mb-6 font-medium">Claim Yours</p>
+                    <p class="text-xs tracking-[0.3em] uppercase text-text-tertiary mb-4 font-medium">Claim Yours</p>
                     <h2 class="text-3xl md:text-4xl font-bold leading-tight heading-accent">
                         Your free visual<br>demo awaits.
                     </h2>
-                    <p class="text-text-secondary text-lg mt-8 font-normal leading-relaxed">
+                    <p class="text-text-primary text-lg mt-6 font-normal leading-relaxed">
                         Send us your listing details. We'll build a stunning AI video preview for you to show your vendors.
                     </p>
-                    <ul class="mt-10 space-y-3 text-sm text-text-secondary">
+                    <ul class="mt-8 space-y-3 text-base text-text-primary">
                         <li class="flex items-center gap-3">
-                            <span class="w-1.5 h-1.5 bg-text-inverse rounded-full"></span>
+                            <span class="w-2 h-2 bg-text-inverse rounded-full flex-shrink-0"></span>
                             No credit card required
                         </li>
                         <li class="flex items-center gap-3">
-                            <span class="w-1.5 h-1.5 bg-text-inverse rounded-full"></span>
+                            <span class="w-2 h-2 bg-text-inverse rounded-full flex-shrink-0"></span>
                             No obligation to purchase
                         </li>
                         <li class="flex items-center gap-3">
-                            <span class="w-1.5 h-1.5 bg-text-inverse rounded-full"></span>
+                            <span class="w-2 h-2 bg-text-inverse rounded-full flex-shrink-0"></span>
                             Delivered within 24 hours
                         </li>
                     </ul>
                 </div>
                 
                 <div>
-                    <!-- Ganti action dengan endpoint Postmark Anda -->
-                    <form action="/api/your-postmark-endpoint" method="POST" class="space-y-5">
+                    <form action="/api/your-postmark-endpoint" method="POST" class="space-y-4">
                         <div>
-                            <label class="block text-xs tracking-[0.2em] uppercase text-text-tertiary mb-3 font-medium">Property Name / Address</label>
-                            <input type="text" name="propertyName" required class="w-full px-0 py-3 bg-transparent border-0 border-b-2 border-border-default text-text-primary placeholder-text-tertiary focus:outline-none focus:border-text-primary transition-fast">
+                            <label class="block text-xs tracking-[0.2em] uppercase text-text-tertiary mb-2 font-medium">Property Name / Address</label>
+                            <input type="text" name="propertyName" required class="w-full px-0 py-3 bg-transparent border-0 border-b-2 border-border-default text-text-primary placeholder-text-tertiary focus:outline-none focus:border-text-primary transition-fast text-base">
                         </div>
                         <div>
-                            <label class="block text-xs tracking-[0.2em] uppercase text-text-tertiary mb-3 font-medium">Your Work Email</label>
-                            <input type="email" name="agentEmail" required class="w-full px-0 py-3 bg-transparent border-0 border-b-2 border-border-default text-text-primary placeholder-text-tertiary focus:outline-none focus:border-text-primary transition-fast">
+                            <label class="block text-xs tracking-[0.2em] uppercase text-text-tertiary mb-2 font-medium">Your Work Email</label>
+                            <input type="email" name="agentEmail" required class="w-full px-0 py-3 bg-transparent border-0 border-b-2 border-border-default text-text-primary placeholder-text-tertiary focus:outline-none focus:border-text-primary transition-fast text-base">
                         </div>
                         <div>
-                            <label class="block text-xs tracking-[0.2em] uppercase text-text-tertiary mb-3 font-medium">Link to Property Photos</label>
-                            <input type="url" name="imageLink" required placeholder="Dropbox, Drive, etc." class="w-full px-0 py-3 bg-transparent border-0 border-b-2 border-border-default text-text-primary placeholder-text-tertiary focus:outline-none focus:border-text-primary transition-fast">
+                            <label class="block text-xs tracking-[0.2em] uppercase text-text-tertiary mb-2 font-medium">Link to Property Photos</label>
+                            <input type="url" name="imageLink" required placeholder="Dropbox, Drive, etc." class="w-full px-0 py-3 bg-transparent border-0 border-b-2 border-border-default text-text-primary placeholder-text-tertiary focus:outline-none focus:border-text-primary transition-fast text-base">
                         </div>
-                        <button type="submit" class="w-full mt-8 py-4 bg-surface-base text-white font-semibold rounded-xs hover:bg-surface-base/90 transition-fast shadow-1">
+                        <button type="submit" class="w-full mt-6 py-4 bg-surface-base text-white font-semibold rounded-xs hover:bg-surface-base/90 transition-fast shadow-1 text-base">
                             Get My Free Demo →
                         </button>
                     </form>
@@ -463,7 +511,6 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="bg-surface-base text-white/40 py-8 px-6 border-t border-white/10">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
             <p class="text-2xl font-bold text-white">Rotodia.</p>
@@ -472,7 +519,6 @@
         </div>
     </footer>
 
-    <!-- Jump Nav Active State Script -->
     <script>
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.jump-nav a');
@@ -484,7 +530,6 @@
                         link.classList.remove('active');
                         if (link.getAttribute('data-section') === entry.target.id) {
                             link.classList.add('active');
-                            // Change nav color based on section background
                             const isDark = entry.target.classList.contains('bg-surface-base');
                             const nav = document.querySelector('.jump-nav');
                             if (isDark) {
