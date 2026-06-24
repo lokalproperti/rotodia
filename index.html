@@ -646,12 +646,11 @@
                 </div>
                 
                 <div>
-                    <form action="https://formsubmit.co/creative@rotodia.dev" method="POST" class="space-y-4">
+                    <form id="demoForm" action="https://formsubmit.co/creative@rotodia.dev" method="POST" class="space-y-4">
                         <!-- FormSubmit Configuration -->
                         <input type="hidden" name="_subject" value="New Free Demo Request - Rotodia">
-                        <input type="hidden" name="_captcha" value="true">
+                        <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_template" value="table">
-                        <input type="hidden" name="_next" value="https://rotodia.dev/thank-you.html">
                         <input type="hidden" name="_autoresponse" value="Thank you for requesting a free demo! We'll build your visual demo within 24 hours and send it to your email.">
                         <input type="text" name="_honey" style="display:none">
                         
@@ -667,10 +666,23 @@
                             <label class="block text-xs tracking-[0.2em] uppercase text-text-tertiary mb-2 font-medium">Link to Property Photos</label>
                             <input type="url" name="Photo Link" required placeholder="Dropbox, Drive, etc." class="w-full px-0 py-3 bg-transparent border-0 border-b-2 border-border-default text-text-primary placeholder-text-tertiary focus:outline-none focus:border-text-primary transition-fast text-base">
                         </div>
-                        <button type="submit" class="w-full mt-6 py-4 bg-surface-base text-white font-semibold rounded-xs hover:bg-surface-base/90 transition-fast shadow-1 text-base">
+                        <button type="submit" id="submitBtn" class="w-full mt-6 py-4 bg-surface-base text-white font-semibold rounded-xs hover:bg-surface-base/90 transition-fast shadow-1 text-base">
                             Get My Free Demo →
                         </button>
                     </form>
+
+                    <!-- Custom Success Message (Hidden by default) -->
+                    <div id="successMessage" class="hidden mt-8 text-center">
+                        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#C6A87C]/20 mb-6">
+                            <svg class="w-8 h-8 text-[#C6A87C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <h3 class="font-serif text-3xl text-text-primary mb-3">Request Received</h3>
+                        <p class="text-text-tertiary text-sm max-w-md mx-auto leading-relaxed">
+                            We'll build your visual demo within 24 hours and send it to your email.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -719,6 +731,43 @@
         }, { threshold: 0.5 });
         
         sections.forEach(section => observer.observe(section));
+    </script>
+    <script>
+    document.getElementById('demoForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const form = e.target;
+        const btn = document.getElementById('submitBtn');
+        const successMsg = document.getElementById('successMessage');
+        const originalText = btn.innerHTML;
+        
+        // Loading state
+        btn.innerHTML = 'Sending...';
+        btn.disabled = true;
+        btn.style.opacity = '0.7';
+        
+        fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                form.style.display = 'none';
+                successMsg.classList.remove('hidden');
+            } else {
+                throw new Error('Failed');
+            }
+        })
+        .catch(error => {
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+            btn.style.opacity = '1';
+            alert('Something went wrong. Please try again.');
+        });
+    });
     </script>
 
 </body>
